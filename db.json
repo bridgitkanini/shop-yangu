@@ -171,6 +171,12 @@
           "image": "https://example.com/product15.png"
         }
       ]
+    },
+    {
+      "id": "3530",
+      "name": "Georgeous",
+      "description": "C'est la boutique où l'on peut trouver la beauté",
+      "logo": "blob:http://localhost:3000/684f10b8-955d-40df-bedf-0fd89996fcef"
     }
   ]
 }
