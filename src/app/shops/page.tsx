@@ -146,7 +146,7 @@ export default function Page() {
 
         {/* Modal */}
         {isModalOpen && (
-          <div className="fixed inset-0 bg-black/50 flex items-center justify-center">
+          <div className="fixed inset-0 bg-black/50 flex items-center justify-center px-8">
             <div className="bg-white rounded-xl p-6 w-full max-w-md">
               <h2 className="text-xl font-bold text-[#041c4c] mb-4">
                 Add New Shop
