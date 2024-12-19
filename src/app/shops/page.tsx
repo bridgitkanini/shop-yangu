@@ -1,9 +1,11 @@
 "use client";
 import { useState, useEffect } from "react";
 import { shopService } from "@/services/api";
+import { Shop } from "@/types";
+import { FaEdit, FaTrash, FaEye } from "react-icons/fa";
 
-interface Shop {
-  id?: string;
+interface ShopFormData {
+  id?: number;
   name: string;
   description: string;
   logo: File | null;
@@ -14,7 +16,7 @@ export default function Page() {
   const [shops, setShops] = useState<Shop[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [formData, setFormData] = useState<Shop>({
+  const [formData, setFormData] = useState<ShopFormData>({
     name: "",
     description: "",
     logo: null,
@@ -36,15 +38,31 @@ export default function Page() {
     }
   };
 
-  const handleSubmit = async (e: { preventDefault: () => void; }) => {
+  const handleSubmit = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
     try {
-      const newShop = await shopService.addShop(formData);
+      // Convert File to string (usually a URL or base64) before sending to API
+      const shopData: Shop = {
+        name: formData.name,
+        description: formData.description,
+        logo: formData.logo ? URL.createObjectURL(formData.logo) : null,
+      };
+
+      const newShop = await shopService.addShop(shopData);
       setShops([...shops, newShop]);
       setIsModalOpen(false);
       setFormData({ name: "", description: "", logo: null });
     } catch (err) {
       setError("Failed to add shop");
+    }
+  };
+
+  const handleDelete = async (id: number) => {
+    try {
+      await shopService.deleteShop(id.toString());
+      setShops(shops.filter((shop) => shop.id !== id));
+    } catch (err) {
+      setError("Failed to delete shop");
     }
   };
 
@@ -65,8 +83,54 @@ export default function Page() {
           </button>
         </div>
 
-        {/* No shops message */}
-        {shops.length === 0 && (
+        {/* Shop List */}
+        {shops.length > 0 ? (
+          <div className="grid gap-6 md:grid-cols-2">
+            {shops.map((shop) => (
+              <div
+                key={shop.id}
+                className="bg-white/80 p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow"
+              >
+                <div className="flex items-start justify-between">
+                  <div>
+                    <h3 className="font-semibold text-lg text-[#041c4c]">
+                      {shop.name}
+                    </h3>
+                    <p className="text-[#1d4268] mt-1">{shop.description}</p>
+                  </div>
+                  {shop.logo && (
+                    <img
+                      src={shop.logo}
+                      alt={`${shop.name} logo`}
+                      className="w-16 h-16 object-cover rounded-lg"
+                    />
+                  )}
+                </div>
+
+                <div className="flex gap-4 mt-4">
+                  <button
+                    onClick={() => (window.location.href = `/shops/${shop.id}`)}
+                    className="flex items-center gap-2 text-[#4ebcbe] hover:text-[#041c4c]"
+                  >
+                    <FaEye /> View
+                  </button>
+                  <button
+                    onClick={() => setIsModalOpen(true)}
+                    className="flex items-center gap-2 text-[#4ebcbe] hover:text-[#041c4c]"
+                  >
+                    <FaEdit /> Edit
+                  </button>
+                  <button
+                    onClick={() => handleDelete(shop.id!)}
+                    className="flex items-center gap-2 text-red-500 hover:text-red-700"
+                  >
+                    <FaTrash /> Delete
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        ) : (
           <div className="text-center py-12 bg-white/80 rounded-xl">
             <p className="text-[#1d4268] text-lg mb-4">
               No shops available yet
