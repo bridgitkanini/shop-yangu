@@ -1,13 +1,7 @@
-interface Shop {
-  id?: string;
-  name: string;
-  description: string;
-  logo: File | null;
-}
+import { Shop } from '@/types';
 
 export const shopService = {
-  async getShops(): Promise<Shop[]> {
-    // Implement your API call here
+  async getShops() {
     const response = await fetch("/api/shops");
     if (!response.ok) {
       throw new Error("Failed to fetch shops");
@@ -15,23 +9,26 @@ export const shopService = {
     return response.json();
   },
 
-  async addShop(shopData: Shop): Promise<Shop> {
-    // Implement your API call here
-    const formData = new FormData();
-    formData.append("name", shopData.name);
-    formData.append("description", shopData.description);
-    if (shopData.logo) {
-      formData.append("logo", shopData.logo);
-    }
-
+  async addShop(shopData: Shop) {
     const response = await fetch("/api/shops", {
       method: "POST",
-      body: formData,
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(shopData),
     });
-
     if (!response.ok) {
       throw new Error("Failed to add shop");
     }
     return response.json();
+  },
+
+  async deleteShop(id: string) {
+    const response = await fetch(`/api/shops/${id}`, {
+      method: "DELETE",
+    });
+    if (!response.ok) {
+      throw new Error("Failed to delete shop");
+    }
   },
 };
