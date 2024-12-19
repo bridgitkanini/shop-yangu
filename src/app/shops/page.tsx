@@ -1,25 +1,55 @@
 "use client";
-import { useState } from "react";
-import Image from "next/image";
+import { useState, useEffect } from "react";
+import { shopService } from "@/services/api";
+
+interface Shop {
+  id?: string;
+  name: string;
+  description: string;
+  logo: File | null;
+}
 
 export default function Page() {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [shops, setShops] = useState([]);
-  const [formData, setFormData] = useState<{
-    name: string;
-    description: string;
-    logo: File | null;
-  }>({
+  const [shops, setShops] = useState<Shop[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+  const [formData, setFormData] = useState<Shop>({
     name: "",
     description: "",
     logo: null,
   });
 
-  const handleSubmit = (e: { preventDefault: () => void }) => {
-    e.preventDefault();
-    // Handle form submission logic here
-    setIsModalOpen(false);
+  useEffect(() => {
+    fetchShops();
+  }, []);
+
+  const fetchShops = async () => {
+    try {
+      setIsLoading(true);
+      const data = await shopService.getShops();
+      setShops(data);
+    } catch (err) {
+      setError("Failed to fetch shops");
+    } finally {
+      setIsLoading(false);
+    }
   };
+
+  const handleSubmit = async (e: { preventDefault: () => void; }) => {
+    e.preventDefault();
+    try {
+      const newShop = await shopService.addShop(formData);
+      setShops([...shops, newShop]);
+      setIsModalOpen(false);
+      setFormData({ name: "", description: "", logo: null });
+    } catch (err) {
+      setError("Failed to add shop");
+    }
+  };
+
+  if (isLoading) return <div className="p-8 text-center">Loading...</div>;
+  if (error) return <div className="p-8 text-center text-red-500">{error}</div>;
 
   return (
     <div className="p-8">

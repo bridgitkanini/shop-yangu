@@ -1,0 +1,10 @@
+{
+    "shops": [
+      {
+        "id": 1,
+        "name": "Sample Shop",
+        "description": "Sample description",
+        "logo": "sample-logo-url"
+      }
+    ]
+  }
