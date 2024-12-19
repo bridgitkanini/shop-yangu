@@ -14,13 +14,13 @@
     },
     {
       "id": 1,
-      "shopName": "Duka la Kiswahili",
-      "shopDescription": "A traditional Swahili shop offering local handcrafted items.",
-      "shopLogo": "https://example.com/logo1.png",
+      "name": "Duka la Kiswahili",
+      "description": "A traditional Swahili shop offering local handcrafted items.",
+      "logo": "https://example.com/logo1.png",
       "products": [
         {
           "id": 1,
-          "productName": "Kikapu cha Mpunga",
+          "name": "Kikapu cha Mpunga",
           "price": 1200,
           "stockLevel": 10,
           "description": "Handwoven rice baskets made by local artisans.",
@@ -28,7 +28,7 @@
         },
         {
           "id": 2,
-          "productName": "Vitu vya Mapambo",
+          "name": "Vitu vya Mapambo",
           "price": 3500,
           "stockLevel": 0,
           "description": "Decorative wooden carvings.",
@@ -36,7 +36,7 @@
         },
         {
           "id": 3,
-          "productName": "Shati la Kitenge",
+          "name": "Shati la Kitenge",
           "price": 2500,
           "stockLevel": 3,
           "description": "Brightly colored Kitenge shirts.",
@@ -46,13 +46,13 @@
     },
     {
       "id": 2,
-      "shopName": "Mboga Fresh",
-      "shopDescription": "A local market for fresh produce and organic foods.",
-      "shopLogo": "https://example.com/logo2.png",
+      "name": "Mboga Fresh",
+      "description": "A local market for fresh produce and organic foods.",
+      "logo": "https://example.com/logo2.png",
       "products": [
         {
           "id": 4,
-          "productName": "Spinachi",
+          "name": "Spinachi",
           "price": 500,
           "stockLevel": 30,
           "description": "Fresh spinach sourced from local farms.",
@@ -60,7 +60,7 @@
         },
         {
           "id": 5,
-          "productName": "Tomato za Asili",
+          "name": "Tomato za Asili",
           "price": 800,
           "stockLevel": 5,
           "description": "Fresh, organic tomatoes grown without pesticides.",
@@ -68,7 +68,7 @@
         },
         {
           "id": 6,
-          "productName": "Biringanya",
+          "name": "Biringanya",
           "price": 600,
           "stockLevel": 12,
           "description": "Fresh eggplants for grilling and frying.",
@@ -78,13 +78,13 @@
     },
     {
       "id": 3,
-      "shopName": "Mavazi Mazuri",
-      "shopDescription": "A clothing store offering modern and stylish fashion.",
-      "shopLogo": "https://example.com/logo3.png",
+      "name": "Mavazi Mazuri",
+      "description": "A clothing store offering modern and stylish fashion.",
+      "logo": "https://example.com/logo3.png",
       "products": [
         {
           "id": 7,
-          "productName": "Gauni la Sherehe",
+          "name": "Gauni la Sherehe",
           "price": 4500,
           "stockLevel": 8,
           "description": "Elegant party dress perfect for special occasions.",
@@ -92,7 +92,7 @@
         },
         {
           "id": 8,
-          "productName": "Suruali za Wanaume",
+          "name": "Suruali za Wanaume",
           "price": 2200,
           "stockLevel": 15,
           "description": "Slim-fit trousers for the modern man.",
@@ -100,7 +100,7 @@
         },
         {
           "id": 9,
-          "productName": "Vitenge vya Kipepeo",
+          "name": "Vitenge vya Kipepeo",
           "price": 1500,
           "stockLevel": 3,
           "description": "Colorful butterfly-print fabrics.",
@@ -110,13 +110,13 @@
     },
     {
       "id": 4,
-      "shopName": "Teknolojia Hapa",
-      "shopDescription": "An electronics store specializing in gadgets and accessories.",
-      "shopLogo": "https://example.com/logo4.png",
+      "name": "Teknolojia Hapa",
+      "description": "An electronics store specializing in gadgets and accessories.",
+      "logo": "https://example.com/logo4.png",
       "products": [
         {
           "id": 10,
-          "productName": "Simu ya Smart",
+          "name": "Simu ya Smart",
           "price": 12000,
           "stockLevel": 5,
           "description": "The latest smartphone with top-notch features.",
@@ -124,7 +124,7 @@
         },
         {
           "id": 11,
-          "productName": "Kompyuta ya Kibao",
+          "name": "Kompyuta ya Kibao",
           "price": 15000,
           "stockLevel": 2,
           "description": "High-performance tablet for work and entertainment.",
@@ -132,7 +132,7 @@
         },
         {
           "id": 12,
-          "productName": "Earbuds za Sauti",
+          "name": "Earbuds za Sauti",
           "price": 3500,
           "stockLevel": 0,
           "description": "Noise-canceling wireless earbuds for music lovers.",
@@ -142,13 +142,13 @@
     },
     {
       "id": 5,
-      "shopName": "Vinywaji vya Asili",
-      "shopDescription": "A refreshing drink shop offering fresh juices and herbal teas.",
-      "shopLogo": "https://example.com/logo5.png",
+      "name": "Vinywaji vya Asili",
+      "description": "A refreshing drink shop offering fresh juices and herbal teas.",
+      "logo": "https://example.com/logo5.png",
       "products": [
         {
           "id": 13,
-          "productName": "Juisi ya Embe",
+          "name": "Juisi ya Embe",
           "price": 500,
           "stockLevel": 20,
           "description": "Fresh mango juice, made daily.",
@@ -156,7 +156,7 @@
         },
         {
           "id": 14,
-          "productName": "Chai ya Mchicha",
+          "name": "Chai ya Mchicha",
           "price": 600,
           "stockLevel": 10,
           "description": "Herbal spinach tea for good health.",
@@ -164,7 +164,7 @@
         },
         {
           "id": 15,
-          "productName": "Juisi ya Ndizi",
+          "name": "Juisi ya Ndizi",
           "price": 550,
           "stockLevel": 7,
           "description": "Sweet banana juice with a tropical twist.",
