@@ -22,7 +22,7 @@ const Navbar = () => {
   }, [pathname]); // Add pathname as dependency
 
   return (
-    <nav className="bg-white text-blue-600 px-6 py-4 flex items-center justify-between">
+    <nav className="bg-white w-full shadow-lg text-blue-600 px-6 py-4 flex items-center justify-between">
       <div className="text-2xl font-semibold">
         <span className="text-primary">Shop</span>
         <span className="text-secondary">Yangu</span>
