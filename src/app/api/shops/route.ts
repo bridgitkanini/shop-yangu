@@ -7,7 +7,8 @@ export async function GET() {
     const res = await fetch(`${API_URL}/shops`);
     const data = await res.json();
     return NextResponse.json(data);
-  } catch (error) {
+  } catch (error: unknown) {
+    console.error('Error fetching shops:', error);
     return NextResponse.json({ error: 'Failed to fetch shops' }, { status: 500 });
   }
 }
@@ -24,7 +25,8 @@ export async function POST(request: Request) {
     });
     const data = await res.json();
     return NextResponse.json(data);
-  } catch (error) {
+  } catch (error: unknown) {
+    console.error('Error creating shop:', error);
     return NextResponse.json({ error: 'Failed to create shop' }, { status: 500 });
   }
 }
