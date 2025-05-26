@@ -184,7 +184,17 @@
       "id": "3530",
       "name": "Georgeous",
       "description": "C'est la boutique où l'on peut trouver la beauté",
-      "logo": "blob:http://localhost:3000/684f10b8-955d-40df-bedf-0fd89996fcef"
+      "logo": "blob:http://localhost:3000/684f10b8-955d-40df-bedf-0fd89996fcef",
+      "products": [
+        {
+          "id": 1748276937992,
+          "name": "Joie de vivre",
+          "price": 5000,
+          "stockLevel": 50,
+          "description": "C'est la vie",
+          "image": "blob:http://localhost:3000/01437e66-55fc-44c0-a3e4-b066cd977ee2"
+        }
+      ]
     },
     {
       "id": "2a74",
