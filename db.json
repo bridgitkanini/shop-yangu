@@ -16,7 +16,7 @@
       "id": "1",
       "name": "Duka la Kiswahili",
       "description": "A traditional Swahili shop offering local handcrafted items.",
-      "logo": "https://cdn.pixabay.com/photo/2013/07/13/10/44/shop-157059_960_720.png",
+      "logo": "https://images.pexels.com/photos/2081199/pexels-photo-2081199.jpeg",
       "products": [
         {
           "id": 1,
@@ -24,7 +24,7 @@
           "price": 1200,
           "stockLevel": 10,
           "description": "Handwoven rice baskets made by local artisans.",
-          "image": "https://cdn.pixabay.com/photo/2016/11/29/05/19/basket-1866792_960_720.jpg"
+          "image": "https://images.pexels.com/photos/1816030/pexels-photo-1816030.jpeg"
         },
         {
           "id": 2,
@@ -32,7 +32,7 @@
           "price": 3500,
           "stockLevel": 0,
           "description": "Decorative wooden carvings.",
-          "image": "https://cdn.pixabay.com/photo/2015/10/12/14/59/wood-carving-983885_960_720.jpg"
+          "image": "https://images.pexels.com/photos/1866149/pexels-photo-1866149.jpeg"
         },
         {
           "id": 3,
@@ -48,7 +48,7 @@
           "price": 500,
           "stockLevel": 5,
           "description": "Affirmations Book",
-          "image": "https://cdn.pixabay.com/photo/2015/11/19/21/11/book-1052014_960_720.jpg"
+          "image": "https://images.pexels.com/photos/261909/pexels-photo-261909.jpeg"
         }
       ]
     },
@@ -56,7 +56,7 @@
       "id": "2",
       "name": "Mboga Fresh",
       "description": "A local market for fresh produce and organic foods.",
-      "logo": "https://cdn.pixabay.com/photo/2017/08/05/00/12/cart-2586855_960_720.png",
+      "logo": "https://images.pexels.com/photos/277352/pexels-photo-277352.jpeg",
       "products": [
         {
           "id": 4,
@@ -64,7 +64,7 @@
           "price": 500,
           "stockLevel": 30,
           "description": "Fresh spinach sourced from local farms.",
-          "image": "https://cdn.pixabay.com/photo/2020/04/09/14/47/spinach-5021360_960_720.jpg"
+          "image": "https://images.pexels.com/photos/41125/spinach-leaves-green-41125.jpeg"
         },
         {
           "id": 5,
@@ -72,7 +72,7 @@
           "price": 800,
           "stockLevel": 5,
           "description": "Fresh, organic tomatoes grown without pesticides.",
-          "image": "https://cdn.pixabay.com/photo/2016/03/05/19/02/tomatoes-1238252_960_720.jpg"
+          "image": "https://images.pexels.com/photos/128420/pexels-photo-128420.jpeg"
         },
         {
           "id": 6,
@@ -80,7 +80,7 @@
           "price": 600,
           "stockLevel": 12,
           "description": "Fresh eggplants for grilling and frying.",
-          "image": "https://cdn.pixabay.com/photo/2017/04/07/02/53/aubergine-2210798_960_720.jpg"
+          "image": "https://images.pexels.com/photos/5945704/pexels-photo-5945704.jpeg"
         }
       ]
     },
@@ -88,7 +88,7 @@
       "id": "3",
       "name": "Mavazi Mazuri",
       "description": "A clothing store offering modern and stylish fashion.",
-      "logo": "https://cdn.pixabay.com/photo/2014/04/03/11/50/logo-312948_960_720.png",
+      "logo": "https://images.pexels.com/photos/1002640/pexels-photo-1002640.jpeg",
       "products": [
         {
           "id": 7,
@@ -112,7 +112,7 @@
           "price": 1500,
           "stockLevel": 3,
           "description": "Colorful butterfly-print fabrics.",
-          "image": "https://cdn.pixabay.com/photo/2020/02/18/12/10/batik-4858673_960_720.jpg"
+          "image": "https://images.pexels.com/photos/994517/pexels-photo-994517.jpeg"
         }
       ]
     },
@@ -120,7 +120,7 @@
       "id": "4",
       "name": "Teknolojia Hapa",
       "description": "An electronics store specializing in gadgets and accessories.",
-      "logo": "https://cdn.pixabay.com/photo/2017/01/31/20/10/icon-2027369_960_720.png",
+      "logo": "https://images.pexels.com/photos/1509534/pexels-photo-1509534.jpeg",
       "products": [
         {
           "id": 10,
@@ -128,7 +128,7 @@
           "price": 12000,
           "stockLevel": 5,
           "description": "The latest smartphone with top-notch features.",
-          "image": "https://cdn.pixabay.com/photo/2015/01/21/14/14/iphone-606761_960_720.jpg"
+          "image": "https://images.pexels.com/photos/607812/pexels-photo-607812.jpeg"
         },
         {
           "id": 11,
@@ -136,7 +136,7 @@
           "price": 15000,
           "stockLevel": 2,
           "description": "High-performance tablet for work and entertainment.",
-          "image": "https://cdn.pixabay.com/photo/2015/12/16/13/30/ipad-1090510_960_720.jpg"
+          "image": "https://images.pexels.com/photos/1432675/pexels-photo-1432675.jpeg"
         },
         {
           "id": 12,
@@ -144,7 +144,7 @@
           "price": 3500,
           "stockLevel": 0,
           "description": "Noise-canceling wireless earbuds for music lovers.",
-          "image": "https://cdn.pixabay.com/photo/2019/10/07/17/40/headphones-4530453_960_720.jpg"
+          "image": "https://images.pexels.com/photos/373945/pexels-photo-373945.jpeg"
         }
       ]
     },
@@ -160,7 +160,7 @@
           "price": 500,
           "stockLevel": 20,
           "description": "Fresh mango juice, made daily.",
-          "image": "https://cdn.pixabay.com/photo/2018/04/29/16/34/mango-juice-3367624_960_720.jpg"
+          "image": "https://images.pexels.com/photos/5946946/pexels-photo-5946946.jpeg"
         },
         {
           "id": 14,
@@ -168,7 +168,7 @@
           "price": 600,
           "stockLevel": 10,
           "description": "Herbal spinach tea for good health.",
-          "image": "https://cdn.pixabay.com/photo/2017/06/15/19/19/tea-2406025_960_720.jpg"
+          "image": "https://images.pexels.com/photos/1417945/pexels-photo-1417945.jpeg"
         },
         {
           "id": 15,
@@ -176,7 +176,7 @@
           "price": 550,
           "stockLevel": 7,
           "description": "Sweet banana juice with a tropical twist.",
-          "image": "https://cdn.pixabay.com/photo/2020/07/01/12/55/banana-juice-5359266_960_720.jpg"
+          "image": "https://images.pexels.com/photos/4887211/pexels-photo-4887211.jpeg"
         }
       ]
     },
