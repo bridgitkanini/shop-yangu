@@ -161,10 +161,11 @@ export default function Page() {
               <form onSubmit={handleSubmit}>
                 <div className="space-y-4">
                   <div>
-                    <label className="block text-sm font-medium text-[#1d4268] mb-1">
+                    <label htmlFor="shopName" className="block text-sm font-medium text-[#1d4268] mb-1">
                       Shop Name
                     </label>
                     <input
+                      id="shopName"
                       type="text"
                       required
                       className="w-full p-2 border rounded-lg"
@@ -174,11 +175,11 @@ export default function Page() {
                       }
                     />
                   </div>
-                  <div>
-                    <label className="block text-sm font-medium text-[#1d4268] mb-1">
+                    <label htmlFor="description" className="block text-sm font-medium text-[#1d4268] mb-1">
                       Description
                     </label>
                     <textarea
+                      id="description"
                       required
                       className="w-full p-2 border rounded-lg"
                       value={formData.description}
@@ -189,12 +190,11 @@ export default function Page() {
                         })
                       }
                     />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-[#1d4268] mb-1">
+                    <label htmlFor="shopLogo" className="block text-sm font-medium text-[#1d4268] mb-1">
                       Shop Logo
                     </label>
                     <input
+                      id="shopLogo"
                       type="file"
                       accept="image/*"
                       className="w-full"
@@ -205,7 +205,6 @@ export default function Page() {
                       }}
                     />
                   </div>
-                </div>
                 <div className="flex justify-end space-x-4 mt-6">
                   <button
                     type="button"
