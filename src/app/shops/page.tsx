@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { shopService } from "@/services/api";
 import { Shop } from "@/types";
 import { FaEdit, FaTrash, FaEye } from "react-icons/fa";
+import Image from "next/image";
 
 interface ShopFormData {
   id?: number;
@@ -102,7 +103,7 @@ export default function Page() {
                     <p className="text-[#1d4268] mt-1">{shop.description}</p>
                   </div>
                   {shop.logo && (
-                    <img
+                    <Image
                       src={shop.logo}
                       alt={`${shop.name} logo`}
                       className="w-16 h-16 object-cover rounded-lg"

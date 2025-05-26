@@ -10,6 +10,7 @@ import {
   FaBoxOpen,
   FaExclamationTriangle,
 } from "react-icons/fa";
+import Image from "next/image";
 
 interface ProductWithShop extends Product {
   shopId: string | number;
@@ -370,7 +371,7 @@ export default function ProductsPage() {
                       </div>
                     </div>
                     {product.image && (
-                      <img
+                      <Image
                         src={product.image}
                         alt={product.name}
                         className="w-16 h-16 object-cover rounded-lg ml-4"

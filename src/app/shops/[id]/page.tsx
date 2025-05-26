@@ -4,6 +4,7 @@ import { useParams, useRouter } from "next/navigation";
 import { shopService, productService } from "@/services/api";
 import { Shop, Product } from "@/types";
 import { FaArrowLeft, FaEdit, FaTrash, FaPlus, FaSearch } from "react-icons/fa";
+import Image from "next/image";
 
 interface ProductFormData {
   id?: number;
@@ -199,7 +200,7 @@ export default function ShopDetailPage() {
         <div className="bg-white/90 rounded-xl p-6 mb-8 shadow-lg">
           <div className="flex items-center gap-6">
             {shop.logo && (
-              <img
+              <Image
                 src={shop.logo}
                 alt={`${shop.name} logo`}
                 className="w-20 h-20 object-cover rounded-lg"
@@ -276,7 +277,7 @@ export default function ShopDetailPage() {
                     className="bg-white/90 rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow"
                   >
                     {product.image && (
-                      <img
+                      <Image
                         src={product.image}
                         alt={product.name}
                         className="w-full h-32 object-cover rounded-lg mb-4"
