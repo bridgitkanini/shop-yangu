@@ -24,7 +24,7 @@
           "price": 1200,
           "stockLevel": 10,
           "description": "Handwoven rice baskets made by local artisans.",
-          "image": "https://images.pexels.com/photos/1816030/pexels-photo-1816030.jpeg"
+          "image": "https://images.pexels.com/photos/994517/pexels-photo-994517.jpeg"
         },
         {
           "id": 2,
@@ -88,7 +88,7 @@
       "id": "3",
       "name": "Mavazi Mazuri",
       "description": "A clothing store offering modern and stylish fashion.",
-      "logo": "https://images.pexels.com/photos/1002640/pexels-photo-1002640.jpeg",
+      "logo": "https://images.pexels.com/photos/994517/pexels-photo-994517.jpeg",
       "products": [
         {
           "id": 7,
@@ -96,7 +96,7 @@
           "price": 4500,
           "stockLevel": 8,
           "description": "Elegant party dress perfect for special occasions.",
-          "image": "https://images.pexels.com/photos/1488463/pexels-photo-1488463.jpeg"
+          "image": "https://images.pexels.com/photos/994517/pexels-photo-994517.jpeg"
         },
         {
           "id": 8,
