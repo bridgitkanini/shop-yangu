@@ -280,6 +280,8 @@ export default function ShopDetailPage() {
                       <Image
                         src={product.image}
                         alt={product.name}
+                        width={200}
+                        height={200}
                         className="w-full h-32 object-cover rounded-lg mb-4"
                       />
                     )}
@@ -365,10 +367,14 @@ export default function ShopDetailPage() {
               <form onSubmit={handleProductSubmit}>
                 <div className="space-y-4">
                   <div>
-                    <label className="block text-sm font-medium text-[#1d4268] mb-1">
+                    <label
+                      htmlFor="productName"
+                      className="block text-sm font-medium text-[#1d4268] mb-1"
+                    >
                       Product Name
                     </label>
                     <input
+                      id="productName"
                       type="text"
                       required
                       className="w-full p-2 border rounded-lg"
@@ -382,10 +388,14 @@ export default function ShopDetailPage() {
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-[#1d4268] mb-1">
+                    <label
+                      htmlFor="productPrice"
+                      className="block text-sm font-medium text-[#1d4268] mb-1"
+                    >
                       Price (KSh)
                     </label>
                     <input
+                      id="productPrice"
                       type="number"
                       required
                       min="0"
@@ -400,10 +410,14 @@ export default function ShopDetailPage() {
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-[#1d4268] mb-1">
+                    <label
+                      htmlFor="stockLevel"
+                      className="block text-sm font-medium text-[#1d4268] mb-1"
+                    >
                       Stock Level
                     </label>
                     <input
+                      id="stockLevel"
                       type="number"
                       required
                       min="0"
@@ -418,10 +432,14 @@ export default function ShopDetailPage() {
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-[#1d4268] mb-1">
+                    <label
+                      htmlFor="description"
+                      className="block text-sm font-medium text-[#1d4268] mb-1"
+                    >
                       Description
                     </label>
                     <textarea
+                      id="description"
                       required
                       className="w-full p-2 border rounded-lg"
                       rows={3}
@@ -435,10 +453,14 @@ export default function ShopDetailPage() {
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-[#1d4268] mb-1">
+                    <label
+                      htmlFor="productImage"
+                      className="block text-sm font-medium text-[#1d4268] mb-1"
+                    >
                       Product Image
                     </label>
                     <input
+                      id="productImage"
                       type="file"
                       accept="image/*"
                       className="w-full"

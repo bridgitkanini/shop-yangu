@@ -374,6 +374,8 @@ export default function ProductsPage() {
                       <Image
                         src={product.image}
                         alt={product.name}
+                        width={200}
+                        height={200}
                         className="w-16 h-16 object-cover rounded-lg ml-4"
                       />
                     )}

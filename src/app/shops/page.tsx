@@ -106,6 +106,8 @@ export default function Page() {
                     <Image
                       src={shop.logo}
                       alt={`${shop.name} logo`}
+                      width={200}
+                      height={200}
                       className="w-16 h-16 object-cover rounded-lg"
                     />
                   )}
@@ -162,7 +164,10 @@ export default function Page() {
               <form onSubmit={handleSubmit}>
                 <div className="space-y-4">
                   <div>
-                    <label htmlFor="shopName" className="block text-sm font-medium text-[#1d4268] mb-1">
+                    <label
+                      htmlFor="shopName"
+                      className="block text-sm font-medium text-[#1d4268] mb-1"
+                    >
                       Shop Name
                     </label>
                     <input
@@ -176,36 +181,42 @@ export default function Page() {
                       }
                     />
                   </div>
-                    <label htmlFor="description" className="block text-sm font-medium text-[#1d4268] mb-1">
-                      Description
-                    </label>
-                    <textarea
-                      id="description"
-                      required
-                      className="w-full p-2 border rounded-lg"
-                      value={formData.description}
-                      onChange={(e) =>
-                        setFormData({
-                          ...formData,
-                          description: e.target.value,
-                        })
+                  <label
+                    htmlFor="description"
+                    className="block text-sm font-medium text-[#1d4268] mb-1"
+                  >
+                    Description
+                  </label>
+                  <textarea
+                    id="description"
+                    required
+                    className="w-full p-2 border rounded-lg"
+                    value={formData.description}
+                    onChange={(e) =>
+                      setFormData({
+                        ...formData,
+                        description: e.target.value,
+                      })
+                    }
+                  />
+                  <label
+                    htmlFor="shopLogo"
+                    className="block text-sm font-medium text-[#1d4268] mb-1"
+                  >
+                    Shop Logo
+                  </label>
+                  <input
+                    id="shopLogo"
+                    type="file"
+                    accept="image/*"
+                    className="w-full"
+                    onChange={(e) => {
+                      if (e.target.files) {
+                        setFormData({ ...formData, logo: e.target.files[0] });
                       }
-                    />
-                    <label htmlFor="shopLogo" className="block text-sm font-medium text-[#1d4268] mb-1">
-                      Shop Logo
-                    </label>
-                    <input
-                      id="shopLogo"
-                      type="file"
-                      accept="image/*"
-                      className="w-full"
-                      onChange={(e) => {
-                        if (e.target.files) {
-                          setFormData({ ...formData, logo: e.target.files[0] });
-                        }
-                      }}
-                    />
-                  </div>
+                    }}
+                  />
+                </div>
                 <div className="flex justify-end space-x-4 mt-6">
                   <button
                     type="button"
