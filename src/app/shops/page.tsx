@@ -32,6 +32,7 @@ export default function Page() {
       const data = await shopService.getShops();
       setShops(data);
     } catch (err) {
+      console.error("Error fetching shops:", err);
       setError("Failed to fetch shops");
     } finally {
       setIsLoading(false);
@@ -53,6 +54,7 @@ export default function Page() {
       setIsModalOpen(false);
       setFormData({ name: "", description: "", logo: null });
     } catch (err) {
+      console.error("Error adding shop:", err);
       setError("Failed to add shop");
     }
   };
@@ -62,6 +64,7 @@ export default function Page() {
       await shopService.deleteShop(id.toString());
       setShops(shops.filter((shop) => shop.id !== id));
     } catch (err) {
+      console.error("Error deleting shop:", err);
       setError("Failed to delete shop");
     }
   };
@@ -107,24 +110,28 @@ export default function Page() {
                   )}
                 </div>
 
-                <div className="flex gap-4 mt-4">
-                  <button
-                    onClick={() => (window.location.href = `/shops/${shop.id}`)}
-                    className="flex items-center gap-2 text-[#4ebcbe] hover:text-[#041c4c]"
-                  >
-                    <FaEye /> View
-                  </button>
-                  <button
-                    onClick={() => setIsModalOpen(true)}
-                    className="flex items-center gap-2 text-[#4ebcbe] hover:text-[#041c4c]"
-                  >
-                    <FaEdit /> Edit
-                  </button>
+                <div className="flex justify-between items-center gap-4 mt-4 text-sm">
+                  <div className="flex gap-4">
+                    <button
+                      onClick={() =>
+                        (window.location.href = `/shops/${shop.id}`)
+                      }
+                      className="flex items-center gap-2 text-[#4ebcbe] hover:text-[#041c4c]"
+                    >
+                      <FaEye size={10} /> View
+                    </button>
+                    <button
+                      onClick={() => setIsModalOpen(true)}
+                      className="flex items-center gap-2 text-[#4ebcbe] hover:text-[#041c4c]"
+                    >
+                      <FaEdit size={10} /> Edit
+                    </button>
+                  </div>
                   <button
                     onClick={() => handleDelete(shop.id!)}
                     className="flex items-center gap-2 text-red-500 hover:text-red-700"
                   >
-                    <FaTrash /> Delete
+                    <FaTrash size={10} /> Delete
                   </button>
                 </div>
               </div>
