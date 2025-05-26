@@ -4,19 +4,19 @@
       "id": "0",
       "name": "Sample Shop",
       "description": "Sample description",
-      "logo": "sample-logo-url"
+      "logo": "https://images.pexels.com/photos/3771128/pexels-photo-3771128.jpeg"
     },
     {
       "id": "98e6",
       "name": "My shop",
       "description": "C'est ma boutique",
-      "logo": "blob:http://localhost:3000/ff7d072e-1a4a-400f-97c6-6d6525c948d7"
+      "logo": "https://cdn.pixabay.com/photo/2017/01/31/20/10/icon-2027369_960_720.png"
     },
     {
       "id": "1",
       "name": "Duka la Kiswahili",
       "description": "A traditional Swahili shop offering local handcrafted items.",
-      "logo": "https://example.com/logo1.png",
+      "logo": "https://cdn.pixabay.com/photo/2013/07/13/10/44/shop-157059_960_720.png",
       "products": [
         {
           "id": 1,
@@ -24,7 +24,7 @@
           "price": 1200,
           "stockLevel": 10,
           "description": "Handwoven rice baskets made by local artisans.",
-          "image": "https://example.com/product1.png"
+          "image": "https://cdn.pixabay.com/photo/2016/11/29/05/19/basket-1866792_960_720.jpg"
         },
         {
           "id": 2,
@@ -32,7 +32,7 @@
           "price": 3500,
           "stockLevel": 0,
           "description": "Decorative wooden carvings.",
-          "image": "https://example.com/product2.png"
+          "image": "https://cdn.pixabay.com/photo/2015/10/12/14/59/wood-carving-983885_960_720.jpg"
         },
         {
           "id": 3,
@@ -40,7 +40,7 @@
           "price": 2500,
           "stockLevel": 3,
           "description": "Brightly colored Kitenge shirts.",
-          "image": "https://example.com/product3.png"
+          "image": "https://images.pexels.com/photos/1660795/pexels-photo-1660795.jpeg"
         },
         {
           "id": 1748275448570,
@@ -48,7 +48,7 @@
           "price": 500,
           "stockLevel": 5,
           "description": "Affirmations Book",
-          "image": "blob:http://localhost:3000/8b7342b7-3ad8-4644-8735-a4dd392a542e"
+          "image": "https://cdn.pixabay.com/photo/2015/11/19/21/11/book-1052014_960_720.jpg"
         }
       ]
     },
@@ -56,7 +56,7 @@
       "id": "2",
       "name": "Mboga Fresh",
       "description": "A local market for fresh produce and organic foods.",
-      "logo": "https://example.com/logo2.png",
+      "logo": "https://cdn.pixabay.com/photo/2017/08/05/00/12/cart-2586855_960_720.png",
       "products": [
         {
           "id": 4,
@@ -64,7 +64,7 @@
           "price": 500,
           "stockLevel": 30,
           "description": "Fresh spinach sourced from local farms.",
-          "image": "https://example.com/product4.png"
+          "image": "https://cdn.pixabay.com/photo/2020/04/09/14/47/spinach-5021360_960_720.jpg"
         },
         {
           "id": 5,
@@ -72,7 +72,7 @@
           "price": 800,
           "stockLevel": 5,
           "description": "Fresh, organic tomatoes grown without pesticides.",
-          "image": "https://example.com/product5.png"
+          "image": "https://cdn.pixabay.com/photo/2016/03/05/19/02/tomatoes-1238252_960_720.jpg"
         },
         {
           "id": 6,
@@ -80,7 +80,7 @@
           "price": 600,
           "stockLevel": 12,
           "description": "Fresh eggplants for grilling and frying.",
-          "image": "https://example.com/product6.png"
+          "image": "https://cdn.pixabay.com/photo/2017/04/07/02/53/aubergine-2210798_960_720.jpg"
         }
       ]
     },
@@ -88,7 +88,7 @@
       "id": "3",
       "name": "Mavazi Mazuri",
       "description": "A clothing store offering modern and stylish fashion.",
-      "logo": "https://example.com/logo3.png",
+      "logo": "https://cdn.pixabay.com/photo/2014/04/03/11/50/logo-312948_960_720.png",
       "products": [
         {
           "id": 7,
@@ -96,7 +96,7 @@
           "price": 4500,
           "stockLevel": 8,
           "description": "Elegant party dress perfect for special occasions.",
-          "image": "https://example.com/product7.png"
+          "image": "https://images.pexels.com/photos/1488463/pexels-photo-1488463.jpeg"
         },
         {
           "id": 8,
@@ -104,7 +104,7 @@
           "price": 2200,
           "stockLevel": 15,
           "description": "Slim-fit trousers for the modern man.",
-          "image": "https://example.com/product8.png"
+          "image": "https://images.pexels.com/photos/532588/pexels-photo-532588.jpeg"
         },
         {
           "id": 9,
@@ -112,7 +112,7 @@
           "price": 1500,
           "stockLevel": 3,
           "description": "Colorful butterfly-print fabrics.",
-          "image": "https://example.com/product9.png"
+          "image": "https://cdn.pixabay.com/photo/2020/02/18/12/10/batik-4858673_960_720.jpg"
         }
       ]
     },
@@ -120,7 +120,7 @@
       "id": "4",
       "name": "Teknolojia Hapa",
       "description": "An electronics store specializing in gadgets and accessories.",
-      "logo": "https://example.com/logo4.png",
+      "logo": "https://cdn.pixabay.com/photo/2017/01/31/20/10/icon-2027369_960_720.png",
       "products": [
         {
           "id": 10,
@@ -128,7 +128,7 @@
           "price": 12000,
           "stockLevel": 5,
           "description": "The latest smartphone with top-notch features.",
-          "image": "https://example.com/product10.png"
+          "image": "https://cdn.pixabay.com/photo/2015/01/21/14/14/iphone-606761_960_720.jpg"
         },
         {
           "id": 11,
@@ -136,7 +136,7 @@
           "price": 15000,
           "stockLevel": 2,
           "description": "High-performance tablet for work and entertainment.",
-          "image": "https://example.com/product11.png"
+          "image": "https://cdn.pixabay.com/photo/2015/12/16/13/30/ipad-1090510_960_720.jpg"
         },
         {
           "id": 12,
@@ -144,7 +144,7 @@
           "price": 3500,
           "stockLevel": 0,
           "description": "Noise-canceling wireless earbuds for music lovers.",
-          "image": "https://example.com/product12.png"
+          "image": "https://cdn.pixabay.com/photo/2019/10/07/17/40/headphones-4530453_960_720.jpg"
         }
       ]
     },
@@ -152,7 +152,7 @@
       "id": "5",
       "name": "Vinywaji vya Asili",
       "description": "A refreshing drink shop offering fresh juices and herbal teas.",
-      "logo": "https://example.com/logo5.png",
+      "logo": "https://images.pexels.com/photos/4320599/pexels-photo-4320599.jpeg",
       "products": [
         {
           "id": 13,
@@ -160,7 +160,7 @@
           "price": 500,
           "stockLevel": 20,
           "description": "Fresh mango juice, made daily.",
-          "image": "https://example.com/product13.png"
+          "image": "https://cdn.pixabay.com/photo/2018/04/29/16/34/mango-juice-3367624_960_720.jpg"
         },
         {
           "id": 14,
@@ -168,7 +168,7 @@
           "price": 600,
           "stockLevel": 10,
           "description": "Herbal spinach tea for good health.",
-          "image": "https://example.com/product14.png"
+          "image": "https://cdn.pixabay.com/photo/2017/06/15/19/19/tea-2406025_960_720.jpg"
         },
         {
           "id": 15,
@@ -176,7 +176,7 @@
           "price": 550,
           "stockLevel": 7,
           "description": "Sweet banana juice with a tropical twist.",
-          "image": "https://example.com/product15.png"
+          "image": "https://cdn.pixabay.com/photo/2020/07/01/12/55/banana-juice-5359266_960_720.jpg"
         }
       ]
     },
@@ -184,7 +184,7 @@
       "id": "3530",
       "name": "Georgeous",
       "description": "C'est la boutique où l'on peut trouver la beauté",
-      "logo": "blob:http://localhost:3000/684f10b8-955d-40df-bedf-0fd89996fcef",
+      "logo": "https://images.pexels.com/photos/2344267/pexels-photo-2344267.jpeg",
       "products": [
         {
           "id": 1748276937992,
@@ -192,7 +192,7 @@
           "price": 5000,
           "stockLevel": 50,
           "description": "C'est la vie",
-          "image": "blob:http://localhost:3000/01437e66-55fc-44c0-a3e4-b066cd977ee2"
+          "image": "https://images.pexels.com/photos/1391397/pexels-photo-1391397.jpeg"
         }
       ]
     },
@@ -200,7 +200,7 @@
       "id": "2a74",
       "name": "Shop Yangu",
       "description": "Shop Yangu Description",
-      "logo": "blob:http://localhost:3000/0c6e5c1c-f5d8-4069-a47d-8a28cb886c70"
+      "logo": "https://cdn.pixabay.com/photo/2014/04/03/11/50/logo-312948_960_720.png"
     }
   ]
 }
