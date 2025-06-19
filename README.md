@@ -30,7 +30,6 @@ The Shop Management System is a modern Next.js 14 application built for managing
 - **Framework**: Next.js 14 with App Router
 - **Language**: TypeScript
 - **Styling**: Tailwind CSS
-- **Icons**: React Icons (Font Awesome)
 - **State Management**: React Hooks (useState, useEffect)
 - **Data Storage**: JSON-based mock API (development)
 
