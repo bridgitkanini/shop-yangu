@@ -468,7 +468,24 @@ The application uses React's built-in state management solutions:
    - Take action on low stock items
 
 
-### Technical ImprovementsAdd commentMore actions
+## Contributing
+
+### Development Workflow
+1. Fork the repository
+2. Create feature branch
+3. Make changes with tests
+4. Submit pull request
+5. Code review process
+
+### Code Review Checklist
+- [ ] TypeScript types properly defined
+- [ ] Error handling implemented
+- [ ] Responsive design tested
+- [ ] Accessibility considerations
+- [ ] Performance optimizations
+- [ ] Documentation updated
+
+### Technical Improvements
 1. **Performance**:
    - Implement pagination for large datasets
    - Add virtual scrolling for long lists
@@ -496,22 +513,6 @@ The application uses React's built-in state management solutions:
 - Microservices architecture
 - Progressive Web App (PWA) features
 
-## Contributing
-
-### Development Workflow
-1. Fork the repository
-2. Create feature branch
-3. Make changes with tests
-4. Submit pull request
-5. Code review process
-
-### Code Review Checklist
-- [ ] TypeScript types properly defined
-- [ ] Error handling implemented
-- [ ] Responsive design tested
-- [ ] Accessibility considerations
-- [ ] Performance optimizations
-- [ ] Documentation updated
 
 ---
 
