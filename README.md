@@ -20,6 +20,8 @@
 
 ShopYangu is a modern shop management system built with Next.js 15, designed to help businesses manage their shops and products efficiently. It provides a clean, intuitive interface for shop owners to manage their inventory, track stock levels, and organize products across multiple shops.
 
+Backend repo: [ShopYangu Backend](https://github.com/bridgitkanini/shop-yangu-backend)
+
 ## Features
 
 ### 1. Shop Management
