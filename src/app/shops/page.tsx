@@ -1,5 +1,3 @@
-
-
 "use client";
 import { useState, useEffect } from "react";
 import { shopService } from "@/services/api";
@@ -8,18 +6,21 @@ import { FaEdit, FaTrash, FaEye } from "react-icons/fa";
 import Image from "next/image";
 
 interface ShopFormData {
-  id?: number;
+  id?: string | number;
   name: string;
   description: string;
-  logo: File | null;
+  logo: File | string | null;
+  logoPreview?: string;
 }
 
 export default function Page() {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isEditMode, setIsEditMode] = useState(false);
   const [shops, setShops] = useState<Shop[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [formData, setFormData] = useState<ShopFormData>({
+    id: undefined,
     name: "",
     description: "",
     logo: null,
@@ -42,33 +43,87 @@ export default function Page() {
     }
   };
 
-  const handleSubmit = async (e: { preventDefault: () => void }) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      // Convert File to string (usually a URL or base64) before sending to API
-      const shopData: Shop = {
+      const shopData: Partial<Shop> = {
         name: formData.name,
         description: formData.description,
-        logo: formData.logo ? URL.createObjectURL(formData.logo) : null,
       };
 
-      const newShop = await shopService.addShop(shopData);
-      setShops([...shops, newShop]);
-      setIsModalOpen(false);
-      setFormData({ name: "", description: "", logo: null });
+      if (formData.logo instanceof File) {
+        shopData.logo = URL.createObjectURL(formData.logo);
+      } else if (formData.logo) {
+        shopData.logo = formData.logo;
+      }
+
+      if (isEditMode && formData.id) {
+        const shopId = formData.id.toString();
+        const updatedShop = await shopService.updateShop(shopId, shopData);
+        setShops(
+          shops.map((shop) => (shop.id === formData.id ? updatedShop : shop))
+        );
+      } else {
+        const newShop = await shopService.addShop(shopData as Omit<Shop, "id">);
+        setShops([...shops, newShop]);
+      }
+
+      closeModal();
     } catch (err) {
-      console.error("Error adding shop:", err);
-      setError("Failed to add shop");
+      console.error(`Error ${isEditMode ? "updating" : "adding"} shop:`, err);
+      setError(`Failed to ${isEditMode ? "update" : "add"} shop`);
     }
   };
 
+  const handleEdit = (shop: Shop) => {
+    setFormData({
+      id: shop.id,
+      name: shop.name,
+      description: shop.description,
+      logo: shop.logo,
+      logoPreview: shop.logo || undefined,
+    });
+    setIsEditMode(true);
+    setIsModalOpen(true);
+  };
+
+  const openAddModal = () => {
+    setFormData({
+      id: undefined,
+      name: "",
+      description: "",
+      logo: null,
+      logoPreview: undefined,
+    });
+    setIsEditMode(false);
+    setIsModalOpen(true);
+  };
+
   const handleDelete = async (id: number) => {
-    try {
-      await shopService.deleteShop(id.toString());
-      setShops(shops.filter((shop) => shop.id !== id));
-    } catch (err) {
-      console.error("Error deleting shop:", err);
-      setError("Failed to delete shop");
+    if (window.confirm("Are you sure you want to delete this shop?")) {
+      try {
+        await shopService.deleteShop(id.toString());
+        setShops(shops.filter((shop) => shop.id !== id));
+      } catch (err) {
+        console.error("Error deleting shop:", err);
+        setError("Failed to delete shop");
+      }
+    }
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setIsEditMode(false);
+  };
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files[0]) {
+      const file = e.target.files[0];
+      setFormData({
+        ...formData,
+        logo: file,
+        logoPreview: URL.createObjectURL(file),
+      });
     }
   };
 
@@ -82,7 +137,7 @@ export default function Page() {
         <div className="flex justify-between items-center mb-8">
           <h1 className="text-2xl font-bold text-[#041c4c]">Shops</h1>
           <button
-            onClick={() => setIsModalOpen(true)}
+            onClick={openAddModal}
             className="bg-[#4ebcbe] text-white px-4 py-2 rounded-lg hover:bg-[#1d4268] transition-colors"
           >
             Add Shop
@@ -126,7 +181,7 @@ export default function Page() {
                       <FaEye size={10} /> View
                     </button>
                     <button
-                      onClick={() => setIsModalOpen(true)}
+                      onClick={() => handleEdit(shop)}
                       className="flex items-center gap-2 text-[#4ebcbe] hover:text-[#041c4c]"
                     >
                       <FaEdit size={10} /> Edit
@@ -148,7 +203,7 @@ export default function Page() {
               No shops available yet
             </p>
             <button
-              onClick={() => setIsModalOpen(true)}
+              onClick={openAddModal}
               className="text-[#4ebcbe] hover:text-[#041c4c]"
             >
               Add your first shop
@@ -161,7 +216,7 @@ export default function Page() {
           <div className="fixed inset-0 bg-black/50 flex items-center justify-center px-8">
             <div className="bg-white rounded-xl p-6 w-full max-w-md">
               <h2 className="text-xl font-bold text-[#041c4c] mb-4">
-                Add New Shop
+                {isEditMode ? "Edit Shop" : "Add New Shop"}
               </h2>
               <form onSubmit={handleSubmit}>
                 <div className="space-y-4">
@@ -212,26 +267,22 @@ export default function Page() {
                     type="file"
                     accept="image/*"
                     className="w-full"
-                    onChange={(e) => {
-                      if (e.target.files) {
-                        setFormData({ ...formData, logo: e.target.files[0] });
-                      }
-                    }}
+                    onChange={handleFileChange}
                   />
                 </div>
-                <div className="flex justify-end space-x-4 mt-6">
+                <div className="mt-6 flex justify-end space-x-3">
                   <button
                     type="button"
-                    onClick={() => setIsModalOpen(false)}
-                    className="px-4 py-2 text-[#1d4268]"
+                    onClick={closeModal}
+                    className="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 rounded-md hover:bg-gray-200"
                   >
                     Cancel
                   </button>
                   <button
                     type="submit"
-                    className="px-4 py-2 bg-[#4ebcbe] text-white rounded-lg hover:bg-[#1d4268]"
+                    className="px-4 py-2 text-sm font-medium text-white bg-[#4ebcbe] rounded-md hover:bg-[#3aa8aa]"
                   >
-                    Add Shop
+                    {isEditMode ? "Update Shop" : "Add Shop"}
                   </button>
                 </div>
               </form>
