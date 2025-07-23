@@ -203,6 +203,8 @@ export default function ShopDetailPage() {
               <Image
                 src={shop.logo}
                 alt={`${shop.name} logo`}
+                width={200}
+                height={200}
                 className="w-20 h-20 object-cover rounded-lg"
               />
             )}
