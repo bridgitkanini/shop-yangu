@@ -185,31 +185,56 @@ ShopYangu is a modern shop management system built with Next.js 15, designed to 
 ## Project Structure
 
 ```
-src/
-├── app/                          # Next.js App Router
-│   ├── api/                     # API Routes
-│   │   └── shops/              # Shop-related endpoints
-│   │       └── route.ts        # Shop API handlers
-│   │   ├── components/             # Shared components
-│   │   │   ├── Footer.tsx         # Footer component
-│   │   │   └── Navbar.tsx         # Navigation bar component
-│   │   ├── fonts/                  # Custom fonts
-│   │   │   ├── GeistMonoVF.woff   # Geist Mono font
-│   │   │   └── GeistVF.woff       # Geist font
-│   │   ├── products/              # Product management
-│   │   │   └── page.tsx          # Products listing page
-│   │   ├── shops/                 # Shop management
-│   │   │   ├── page.tsx          # Shops listing page
-│   │   │   └── [id]/             # Dynamic shop routes
-│   │   │   └── page.tsx      # Individual shop page
-│   │   ├── globals.css           # Global styles
-│   │   ├── layout.tsx            # Root layout component
-│   │   └── page.tsx             # Dashboard/home page
-│   ├── services/                  # API and business logic
-│   │   └── api.ts               # API service functions
-│   └── types/                    # TypeScript definitions
-│       └── index.ts             # Type definitions
+shop-yangu/
+├── .next/                    # Next.js build output
+├── public/                   # Static files (images, fonts, etc.)
+├── src/
+│   ├── app/                  # Next.js App Router
+│   │   ├── api/              # API routes
+│   │   ├── components/       # Shared UI components
+│   │   │   ├── Footer.tsx    # Footer component
+│   │   │   └── Navbar.tsx    # Navigation bar component
+│   │   ├── fonts/            # Custom font files
+│   │   ├── products/         # Product-related pages
+│   │   ├── shops/            # Shop-related pages
+│   │   ├── globals.css       # Global styles
+│   │   ├── layout.tsx        # Root layout
+│   │   └── page.tsx          # Home page
+│   ├── services/             # API service layer
+│   │   └── api.ts            # API client and service functions
+│   └── types/                # TypeScript type definitions
+├── .eslintrc.json            # ESLint configuration
+├── .gitignore                # Git ignore rules
+├── db.json                   # Mock database for development
+├── next-env.d.ts             # Next.js TypeScript declarations
+├── next.config.ts            # Next.js configuration
+├── package.json              # Project dependencies and scripts
+├── postcss.config.mjs        # PostCSS configuration
+└── tailwind.config.ts        # Tailwind CSS configuration
 ```
+
+### Key Directories Explained:
+
+- **`app/`**: Contains all the application pages and routes following Next.js 13+ App Router conventions.
+
+  - `api/`: API route handlers for server-side functionality.
+  - `components/`: Reusable UI components used across the application.
+  - `fonts/`: Custom font files used in the application.
+  - `products/` and `shops/`: Feature-based route groups containing page components.
+
+- **`services/`**: Contains the API service layer that handles all data fetching and API communication.
+
+  - `api.ts`: Centralized API client with methods for CRUD operations.
+
+- **`types/`**: TypeScript type definitions for the application's data models and props.
+
+- **Root Configuration Files**:
+  - `next.config.ts`: Next.js configuration including environment variables and build settings.
+  - `tailwind.config.ts`: Tailwind CSS configuration with custom theme settings.
+  - `postcss.config.mjs`: PostCSS configuration for processing CSS.
+  - `tsconfig.json`: TypeScript configuration.
+
+This structure follows Next.js 13+ best practices with the App Router, separating concerns between UI components, data fetching, and business logic.
 
 ## Data Models
 
@@ -217,11 +242,11 @@ src/
 
 ```typescript
 interface Shop {
-  id?: number; // Unique identifier
+  id?: string; // Unique identifier (generated as string)
   name: string; // Shop name
   description: string; // Shop description
-  logo: string | null; // Logo URL or blob
-  products?: Product[]; // Associated products
+  logo: string | null; // Logo URL or null if not set
+  products?: Product[]; // Array of associated products
 }
 ```
 
@@ -229,12 +254,12 @@ interface Shop {
 
 ```typescript
 interface Product {
-  id?: number; // Unique identifier
+  id?: number; // Unique identifier (generated as timestamp)
   name: string; // Product name
   price: number; // Product price
   stockLevel: number; // Current stock quantity
   description: string; // Product description
-  image: string | null; // Image URL or blob
+  image: string | null; // Image URL or null if not set
 }
 ```
 
@@ -245,7 +270,7 @@ interface DashboardMetrics {
   totalShops: number; // Total number of shops
   totalProducts: number; // Total number of products
   totalValue: number; // Total inventory value
-  totalStock: number; // Total stock units
+  totalStock: number; // Total stock units across all products
 }
 ```
 
@@ -263,14 +288,16 @@ interface StockStatusDistribution {
 
 ```typescript
 interface ShopStockInfo {
-  id: string | number; // Shop identifier
+  id: string; // Shop identifier
   name: string; // Shop name
-  totalStock: number; // Total stock across all products
+  totalStock: number; // Total stock across all products in shop
   productCount: number; // Number of products in shop
 }
 ```
 
 ## API Services
+
+The application uses a service-based architecture with the following key services:
 
 ### Shop Service
 
@@ -280,34 +307,34 @@ Located in `src/services/api.ts`, provides core shop management functionality:
 // Shop operations
 getShops(): Promise<Shop[]>                           // Fetch all shops
 getShop(id: string): Promise<Shop>                    // Fetch single shop
-addShop(shop: Omit<Shop, 'id'>): Promise<Shop>       // Create new shop
+addShop(shop: Omit<Shop, 'id'>): Promise<Shop>        // Create new shop
 updateShop(id: string, shop: Partial<Shop>): Promise<Shop>  // Update shop
-deleteShop(id: string): Promise<void>                 // Delete shop
+deleteShop(id: string): Promise<void>                 // Delete shop (fails if shop has products)
 ```
 
 ### Product Service
 
-Handles all product-related operations:
+Handles all product-related operations within shops:
 
 ```typescript
 // Product operations
-getProducts(shopId: string): Promise<Product[]>       // Get shop's products
+getProducts(shopId: string): Promise<Product[]>       // Get all products in a shop
 getProduct(shopId: string, productId: string): Promise<Product | null>  // Get single product
-addProduct(shopId: string, product: Omit<Product, 'id'>): Promise<Product>  // Add product
+addProduct(shopId: string, product: Omit<Product, 'id'>): Promise<Product>  // Add product to shop
 updateProduct(shopId: string, product: Product): Promise<Product>  // Update product
-deleteProduct(shopId: string, productId: string): Promise<void>    // Delete product
-getAllProducts(): Promise<Product[]>                  // Get all products across shops
+deleteProduct(shopId: string, productId: string): Promise<void>    // Delete product from shop
+getAllProducts(): Promise<Product[]>                  // Get all products across all shops
 ```
 
 ### Dashboard Service
 
-Provides analytics and metrics:
+Provides analytics and metrics for the application:
 
 ```typescript
 // Analytics operations
 getOverviewMetrics(): Promise<DashboardMetrics>       // Get overall metrics
-getStockStatusDistribution(): Promise<StockStatusDistribution>  // Get stock levels
-getTopShopsByStock(): Promise<ShopStockInfo[]>        // Get top shops by stock
+getStockStatusDistribution(): Promise<StockStatusDistribution>  // Get stock level distribution
+getTopShopsByStock(): Promise<ShopStockInfo[]>       // Get shops sorted by total stock
 ```
 
 ## Error Handling
@@ -319,18 +346,21 @@ The application implements comprehensive error handling across different layers:
 - Response validation for all API calls
 - Specific error messages for different failure scenarios
 - Proper error propagation to UI layer
+- Network error handling with user-friendly messages
 
 ### Shop Operations
 
 - Validation before shop deletion (prevents deletion of shops with products)
 - Error handling for failed CRUD operations
 - Proper error messages for user feedback
+- Duplicate shop name prevention
 
 ### Product Operations
 
-- Stock level validation
+- Stock level validation (non-negative numbers)
 - Product relationship validation with shops
 - Error handling for product CRUD operations
+- Input validation for product details
 
 ### UI Layer
 
@@ -338,25 +368,34 @@ The application implements comprehensive error handling across different layers:
 - Error state display for failed operations
 - User-friendly error messages
 - Graceful degradation on failures
+- Form validation feedback
 
 ### Common Error Scenarios
 
 1. **Shop Operations**
 
    - Cannot delete shop with active products
-   - Failed to fetch shop data
-   - Failed to update shop details
+   - Failed to fetch shop data (network/server issues)
+   - Failed to update shop details (validation/network errors)
+   - Duplicate shop names
 
 2. **Product Operations**
 
-   - Failed to add/update products
-   - Failed to fetch product data
-   - Stock level validation errors
+   - Invalid product data (missing fields, invalid types)
+   - Stock level validation failures
+   - Product not found in shop
+   - Failed image uploads
 
-3. **API Errors**
-   - Network connectivity issues
-   - Invalid response formats
-   - Server errors
+3. **Network/Server Issues**
+
+   - Server unavailable
+   - Timeout handling
+   - Offline mode detection
+
+4. **Authentication/Authorization**
+   - Unauthorized access attempts
+   - Session timeouts
+   - Permission validation
 
 ## State Management
 
@@ -467,10 +506,10 @@ The application uses React's built-in state management solutions:
    - Monitor stock levels across all shops
    - Take action on low stock items
 
-
 ## Contributing
 
 ### Development Workflow
+
 1. Fork the repository
 2. Create feature branch
 3. Make changes with tests
@@ -478,6 +517,7 @@ The application uses React's built-in state management solutions:
 5. Code review process
 
 ### Code Review Checklist
+
 - [ ] TypeScript types properly defined
 - [ ] Error handling implemented
 - [ ] Responsive design tested
@@ -486,17 +526,21 @@ The application uses React's built-in state management solutions:
 - [ ] Documentation updated
 
 ### Technical Improvements
+
 1. **Performance**:
+
    - Implement pagination for large datasets
    - Add virtual scrolling for long lists
    - Optimize image loading with lazy loading
 
 2. **Testing**:
+
    - Unit tests with Jest
    - Integration tests with React Testing Library
    - E2E tests with Playwright
 
 3. **Accessibility**:
+
    - WCAG 2.1 compliance
    - Screen reader optimization
    - Keyboard navigation improvements
@@ -506,14 +550,13 @@ The application uses React's built-in state management solutions:
    - File upload security
    - CSRF protection
 
-
 ### Architecture Enhancements
+
 - Implement proper state management (Redux, Zustand)
 - Add caching layer (React Query, SWR)
 - Microservices architecture
 - Progressive Web App (PWA) features
 
-
 ---
 
-**Last Updated**: June 2025  
+**Last Updated**: June 2025
