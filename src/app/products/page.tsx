@@ -206,7 +206,7 @@ export default function ProductsPage() {
   if (error) return <div className="p-8 text-center text-red-500">{error}</div>;
 
   return (
-    <main className="bg-gradient-to-br from-white to-[#1d4268] p-4 md:p-14 min-h-screen">
+    <main className="bg-gradient-to-br from-white to-[#1d4268] px-4 md:px-14 py-8 md:py-20 min-h-screen">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">

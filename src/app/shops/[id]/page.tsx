@@ -184,7 +184,7 @@ export default function ShopDetailPage() {
   if (!shop) return <div className="p-8 text-center">Shop not found</div>;
 
   return (
-    <main className="bg-gradient-to-br from-white to-[#1d4268] p-4 md:p-14 min-h-screen">
+    <main className="bg-gradient-to-br from-white to-[#1d4268] px-4 md:px-14 py-8 md:py-20 min-h-screen">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="flex items-center gap-4 mb-6">

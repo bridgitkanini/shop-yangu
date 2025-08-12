@@ -131,7 +131,7 @@ export default function Page() {
   if (error) return <div className="p-8 text-center text-red-500">{error}</div>;
 
   return (
-    <main className="bg-gradient-to-br from-white to-[#1d4268] p-4 md:p-14">
+    <main className="bg-gradient-to-br from-white to-[#1d4268] px-4 md:px-14 py-8 md:py-20">
       {/* Main content */}
       <div className="max-w-4xl mx-auto">
         <div className="flex justify-between items-center mb-8">
